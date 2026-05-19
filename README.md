@@ -1,4 +1,4 @@
-# Generador de Contraseñas Seguras
+# Generador de Contraseñas Seguras 
 
 Este proyecto es una aplicación web interactiva diseñada para generar contraseñas seguras y aleatorias basadas en las preferencias del usuario. El diseño y los requerimientos funcionales toman como referencia un desafío propuesto por la plataforma Frontend Mentor.
 
