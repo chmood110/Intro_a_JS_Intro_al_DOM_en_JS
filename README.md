@@ -1,34 +1,38 @@
-# Generador de Contraseñas Seguras
+# Caja de Comentarios - Seguimiento de Libros
 
-Este proyecto es una aplicación web interactiva diseñada para generar contraseñas seguras y aleatorias basadas en las preferencias del usuario. El diseño y los requerimientos funcionales toman como referencia un desafío propuesto por la plataforma Frontend Mentor.
+Este proyecto es una aplicación web interactiva que funciona como un sistema de comentarios básico. Su desarrollo tiene como objetivo principal poner en práctica los fundamentos de la manipulación del DOM (Document Object Model) y la gestión de eventos utilizando JavaScript.
 
-## Descripción y objetivo
+## Descripción del proyecto
 
-El propósito principal de este desarrollo fue poner en práctica y fortalecer conceptos fundamentales del desarrollo frontend. Durante su creación, el enfoque se centró en la manipulación dinámica del DOM, el manejo de eventos a través de JavaScript, y la maquetación estructurada e interactiva utilizando HTML y CSS.
+La aplicación simula la sección de comentarios de una plataforma de seguimiento de libros. Permite a los usuarios redactar un mensaje a través de un formulario y visualizarlo en la pantalla de forma inmediata. Este ejercicio es fundamental para comprender cómo interactúa JavaScript con el HTML para modificar el contenido y la estructura de una página web en tiempo real, sin necesidad de recargar el navegador.
 
 ## Características principales
 
-* **Personalización de longitud:** El usuario puede ajustar la cantidad de caracteres de la contraseña (de 1 a 20) utilizando un control deslizante continuo.
-* **Filtros de caracteres:** Permite seleccionar combinaciones específicas de letras mayúsculas, minúsculas, números y símbolos para armar la clave.
-* **Evaluación de seguridad:** Cuenta con un algoritmo interno e indicador visual que calcula y muestra en tiempo real la fortaleza de la contraseña generada, clasificándola desde muy débil hasta fuerte.
-* **Copiado rápido:** Incluye una función nativa para copiar la contraseña resultante directamente al portapapeles del sistema con un solo clic, mejorando la experiencia de uso.
+* **Publicación en tiempo real:** Los usuarios pueden escribir y agregar comentarios que se insertan dinámicamente en la interfaz justo debajo del formulario.
+* **Registro de tiempo (Timestamps):** Cada comentario generado captura y muestra automáticamente la fecha y la hora exacta en la que fue publicado.
+* **Eliminación de elementos:** Cada comentario incluye un botón funcional que permite al usuario borrar ese mensaje específico de la pantalla, modificando el DOM al instante.
+* **Prevención de recargas:** El formulario intercepta el evento de envío (submit) por defecto, evitando que la página se actualice y pierda el estado actual de los comentarios.
 
-## Tecnologías implementadas
+## Objetivos de aprendizaje aplicados
 
-* **HTML5:** Utilizado para construir la estructura semántica de la interfaz y del formulario.
-* **CSS3:** Empleado para la maquetación y el diseño visual. Se implementaron variables de entorno, Flexbox para la alineación de componentes y estilos completamente personalizados para alterar el diseño por defecto de elementos nativos, como el control deslizante y las casillas de verificación.
-* **JavaScript (Vanilla):** Responsable de toda la lógica de la aplicación. Maneja el algoritmo de generación aleatoria matemática, el cálculo de la fuerza de la contraseña y la actualización de la interfaz en tiempo real según las interacciones del usuario.
+Durante el desarrollo de este proyecto se aplicaron los siguientes conceptos:
+* Captura y manejo de eventos de usuario (clics y envíos de formulario).
+* Uso de `event.preventDefault()` para controlar el comportamiento nativo del navegador.
+* Creación dinámica de elementos HTML (`document.createElement`).
+* Inserción y eliminación de nodos en el DOM (`appendChild`, `prepend`, `remove`).
+* Lectura y limpieza de valores de campos de entrada (inputs/textareas).
+* Obtención y formateo de fechas usando el objeto `Date` de JavaScript.
 
-## Estructura del repositorio
+## Tecnologías utilizadas
 
-* `index.html`: Define el esqueleto principal y los elementos visuales de la página.
-* `styles.css`: Contiene las reglas de diseño, colores y adaptabilidad del proyecto.
-* `script.js`: Archivo encargado de procesar los eventos del usuario y ejecutar la funcionalidad central.
+* **HTML5:** Para la estructura del formulario y el contenedor de comentarios.
+* **CSS3:** Para aplicar un diseño limpio, legible y amigable para el usuario.
+* **JavaScript (Vanilla):** Para toda la lógica de interactividad y manipulación del DOM.
 
 ## Instrucciones de uso local
 
-Para visualizar y probar el funcionamiento del proyecto en un entorno local, los pasos son muy sencillos:
+Para probar este proyecto en tu equipo:
 
-1.  Descarga o clona este repositorio en tu equipo.
-2.  Navega hasta la carpeta del proyecto.
-3.  Abre el archivo `index.html` en tu navegador web de preferencia. No es necesario instalar dependencias ni correr un servidor local.
+1. Clona este repositorio o descarga los archivos fuente (`index.html`, `styles.css`, `script.js`).
+2. Guarda los tres archivos en una misma carpeta.
+3. Abre el archivo `index.html` haciendo doble clic sobre él o arrastrándolo a tu navegador web favorito. No se requiere la instalación de servidores locales ni dependencias adicionales.

@@ -1,243 +1,88 @@
-:root {
-    --bg-color: #14131B;
-    --card-bg: #24232C;
-    --card-bg-dark: #18171F;
-    --text-main: #E6E5EA;
-    --text-muted: #817D92;
-    --neon-green: #A4FFAF;
-    --strength-1: #F64A4A; /* Red */
-    --strength-2: #FB7C58; /* Orange */
-    --strength-3: #F8CD65; /* Yellow */
-    --strength-4: #A4FFAF; /* Green */
-}
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'JetBrains Mono', monospace;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
     padding: 20px;
 }
 
 .container {
-    width: 100%;
-    max-width: 540px;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.title {
-    color: var(--text-muted);
+h1 {
     font-size: 24px;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.output-container, .controls-container {
-    background-color: var(--card-bg);
-    padding: 20px 30px;
-    margin-bottom: 24px;
-}
-
-.output-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#password-output {
-    background: none;
-    border: none;
-    color: var(--text-main);
-    font-size: 32px;
-    font-weight: 700;
-    width: 100%;
-    outline: none;
-}
-
-#password-output::placeholder {
-    color: rgba(230, 229, 234, 0.25);
-}
-
-#copy-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: filter 0.2s;
-}
-
-#copy-btn:hover {
-    filter: brightness(1.5);
-}
-
-.length-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 20px;
 }
 
-#length-display {
-    color: var(--neon-green);
-    font-size: 32px;
-}
-
-/* Custom Range Slider */
-input[type=range] {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 8px;
-    background: var(--card-bg-dark);
-    outline: none;
-    margin-bottom: 30px;
-    background-image: linear-gradient(var(--neon-green), var(--neon-green));
-    background-size: 50% 100%; /* Default 50% for value=10 */
-    background-repeat: no-repeat;
-}
-
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 28px;
-    width: 28px;
-    border-radius: 50%;
-    background: var(--text-main);
-    cursor: pointer;
-    transition: background .15s ease-in-out, border .15s ease-in-out;
-}
-
-input[type=range]::-webkit-slider-thumb:hover {
-    background: var(--card-bg);
-    border: 2px solid var(--neon-green);
-}
-
-/* Checkboxes */
-.checkboxes {
+form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
     margin-bottom: 30px;
 }
 
-.custom-checkbox {
-    position: relative;
-    padding-left: 40px;
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    resize: vertical;
+}
+
+button {
+    padding: 10px 16px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
     cursor: pointer;
-    font-size: 18px;
-    user-select: none;
+    transition: background-color 0.2s;
 }
 
-.custom-checkbox input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+button:hover {
+    background-color: #004494;
 }
 
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background-color: transparent;
-    border: 2px solid var(--text-main);
-}
-
-.custom-checkbox:hover input ~ .checkmark {
-    border-color: var(--neon-green);
-}
-
-.custom-checkbox input:checked ~ .checkmark {
-    background-color: var(--neon-green);
-    border-color: var(--neon-green);
-}
-
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.custom-checkbox input:checked ~ .checkmark:after {
-    display: block;
-}
-
-.custom-checkbox .checkmark:after {
-    left: 6px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid var(--card-bg);
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
-}
-
-/* Strength Section */
-.strength-container {
+.comment {
+    border-top: 1px solid #eee;
+    padding: 16px 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--card-bg-dark);
-    padding: 20px 30px;
-    margin-bottom: 30px;
-}
-
-.strength-label {
-    color: var(--text-muted);
-}
-
-.strength-indicator {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-#strength-text {
-    font-size: 24px;
-}
-
-.bars {
-    display: flex;
+    flex-direction: column;
     gap: 8px;
 }
 
-.bar {
-    width: 10px;
-    height: 28px;
-    border: 2px solid var(--text-main);
-}
-
-/* Botón de Generar */
-#generate-btn {
-    width: 100%;
-    background-color: var(--neon-green);
-    color: var(--card-bg);
-    font-size: 18px;
-    font-weight: bold;
-    padding: 20px;
-    border: none;
-    cursor: pointer;
+.comment-header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    transition: background 0.2s, color 0.2s;
+    font-size: 12px;
+    color: #666;
 }
 
-#generate-btn:hover {
-    background-color: transparent;
-    color: var(--neon-green);
-    border: 2px solid var(--neon-green);
+.delete-btn {
+    background-color: #dc3545;
+    padding: 6px 12px;
+    font-size: 12px;
 }
 
-#generate-btn:hover svg path {
-    fill: var(--neon-green);
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.comment-text {
+    font-size: 15px;
+    line-height: 1.5;
 }
